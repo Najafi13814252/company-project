@@ -77,9 +77,6 @@
                 this.filter = false
                 this.showEmptyForm = false
                 this.showFullForm = true
-                // if (this.name.trim() !== "") {
-                //     this.todos.push(this.name)
-                // }
             },
             addImage(image) {
                 this.imageOfList = image
