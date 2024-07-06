@@ -28,14 +28,14 @@
             </div>
             <div class="p-4 border-2 border-dashed border-pink-300 rounded-2xl gap-4 mt-6 mx-1 md:mx-0">
                 <div class="p-2 text-xl font-black text-center bg-gray-100 text-gray-500 rounded-2xl" v-show="showEmptyForm">No account has been created yet</div>
-                <ul class="flex flex-col gap-y-4" v-show="showFullForm">
-                    <li class="flex gap-x-20 md:gap-5 items-center justify-between bg-gradient-to-br from-sky-400 to-sky-300 py-2 px-4 drop-shadow-lg rounded-2xl">
+                <ul class="flex flex-col gap-y-4">
+                    <li class="flex gap-x-20 md:gap-5 items-center justify-between bg-gradient-to-br from-sky-400 to-sky-300 py-2 px-4 drop-shadow-lg rounded-2xl" v-for="(todo, index) in todos" :key="index">
                         <div class="flex gap-x-4 items-center">
-                            <img class="w-16" :src="imageOfList.url" alt="image-of-list">
-                            <span class="font-black text-lg text-gray-700">{{ name}}</span>
+                            <img class="w-16" :src="todo.image" alt="image-of-list">
+                            <span class="font-black text-lg text-gray-700">{{ todo.name }}</span>
                         </div>
                         <div class="flex items-center gap-x-2 cursor-pointer">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 p-1 text-white bg-gray-400 rounded-lg hover:scale-110 hover:bg-gray-500 duration-200" @click="editForm">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 p-1 text-white bg-gray-400 rounded-lg hover:scale-110 hover:bg-gray-500 duration-200" @click="editAccount">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"></path></svg>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 p-1 text-white bg-orange-400 rounded-lg hover:scale-110 hover:bg-orange-500 duration-200">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path></svg>
@@ -46,7 +46,7 @@
         </div>
     </div>
 
-    <account class="absolute md:left-1/3 top-28" v-show="showForm" @close-form="closeForm" @add-name="addName($event)" @add-image="addImage($event)" edit="editForm"/>
+    <account class="absolute md:left-1/3 top-28" v-show="showForm" @close-form="closeForm" @add="addAccount" :edit="edit"/>
 
 </template>
 
@@ -56,34 +56,37 @@
             return {
                 showForm: false,
                 filter: false,
+                showEmptyForm: true,
                 name: "",
                 imageOfList: "",
-                showEmptyForm: true,
-                showFullForm: false,
+                todos: [], 
+                edit: 'Add'
             }
         },
         methods: {
             openForm() {
                 this.showForm = true
                 this.filter = true
+                this.edit = 'Add'
             },
             closeForm() {
                 this.showForm = false
                 this.filter = false
             },
-            addName(Ename) {
-                this.name = Ename
+            addAccount(account) {
+                this.name = account.name
+                this.imageOfList = account.image.url
                 this.showForm = false
                 this.filter = false
                 this.showEmptyForm = false
-                this.showFullForm = true
+                if (this.name !== "") {
+                    this.todos.push({name:this.name, image:this.imageOfList})
+                }
             },
-            addImage(image) {
-                this.imageOfList = image
-                
-            },
-            editForm() {
+            editAccount() {
                 this.showForm = true
+                this.filter = true
+                this.edit = 'Edit'
             }
         }
     }

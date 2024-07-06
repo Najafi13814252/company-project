@@ -19,8 +19,8 @@
                     </div>
                 </div>
                 <div class="flex justify-center gap-4">
-                    <button class="py-3 px-8 text-lg font-black rounded-full border-2 border-pink-300 text-pink-300 hover:bg-pink-400 hover:text-white duration-200" @click="add">Add</button>
-                    <button class="py-3 px-8 text-lg font-black rounded-full border-2 border-blue-300 text-blue-300 hover:bg-blue-400 hover:text-white duration-200" @click="closeForm">Cancel</button>
+                    <button class="py-3 px-8 text-lg font-black rounded-full border border-pink-300 text-pink-300 hover:bg-pink-400 hover:text-white duration-200" @click="add">{{ edit }}</button>
+                    <button class="py-3 px-8 text-lg font-black rounded-full border border-blue-300 text-blue-300 hover:bg-blue-400 hover:text-white duration-200" @click="closeForm">Cancel</button>
                 </div>
             </div>
         </div>
@@ -29,6 +29,7 @@
 
 <script>
     export default {
+        props: ['edit'],
         data() {
             return {
                 years: Array.from({ length: 24 }, (_, index) => 2000 + index),
@@ -50,8 +51,7 @@
                 this.$emit('close-form')
             },
             add() {
-                this.$emit('add-name', this.inpName)
-                this.$emit('add-image', this.images[this.borderAct - 1])
+                this.$emit('add', {name:this.inpName, image: this.images[this.borderAct - 1]})
             }
         }
     }

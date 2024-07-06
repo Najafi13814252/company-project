@@ -48,7 +48,8 @@
                 openSidebar: true,
                 showBtnTune: true,
                 displaySidebar: 'none',
-                anima: false
+                anima: false,
+                filter: false
             }
         },
         methods: {
@@ -70,6 +71,9 @@
                 } else if (optionId == 3) {
                     this.$router.push({ name: 'profile', params: { id: optionId } })
                 }
+            },
+            bgFilterSlider() {
+                this.filter = true
             }
         }
     }
