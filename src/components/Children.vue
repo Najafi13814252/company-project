@@ -87,14 +87,14 @@
                 this.showForm = false
                 this.filter = false
                 this.showEmptyForm = false
-<<<<<<< HEAD
+
                 if (this.name !== "") {
                     this.todos.push({name:this.name, image:this.imageOfList, id:this.id})
                 }
                 localStorage.setItem(STORAGE_KEY, JSON.stringify({name:this.name, image:this.imageOfList, id:this.id}))
-=======
+
                 this.showFullForm = true
->>>>>>> 8c73802d62e608bf8abb19b77c451afc45e52037
+
             },
             editAccount() {
                 this.showForm = true
