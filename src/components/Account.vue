@@ -40,7 +40,8 @@
                     {url: './../../public/images/egg.png', id: 4}
                 ],
                 borderAct: 1,
-                inpName: ""
+                inpName: "",
+                id: 0
             }
         },
         methods: {
@@ -51,7 +52,14 @@
                 this.$emit('close-form')
             },
             add() {
-                this.$emit('add', {name:this.inpName, image: this.images[this.borderAct - 1]})
+                this.id += 1
+                this.$emit('add', {
+                    name:this.inpName,
+                    image: this.images[this.borderAct - 1],
+                    id: this.id
+                })
+                this.inpName = ""
+                this.borderAct = 1
             }
         }
     }

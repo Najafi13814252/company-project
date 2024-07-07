@@ -51,6 +51,9 @@
 </template>
 
 <script>
+
+    const STORAGE_KEY = 'todo-list'
+
     export default {
         data() {
             return {
@@ -59,9 +62,13 @@
                 showEmptyForm: true,
                 name: "",
                 imageOfList: "",
+                id: 0,
                 todos: [], 
                 edit: 'Add'
             }
+        },
+        created() {
+            this.todos = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]')
         },
         methods: {
             openForm() {
@@ -76,12 +83,14 @@
             addAccount(account) {
                 this.name = account.name
                 this.imageOfList = account.image.url
+                this.id = account.id
                 this.showForm = false
                 this.filter = false
                 this.showEmptyForm = false
                 if (this.name !== "") {
-                    this.todos.push({name:this.name, image:this.imageOfList})
+                    this.todos.push({name:this.name, image:this.imageOfList, id:this.id})
                 }
+                localStorage.setItem(STORAGE_KEY, JSON.stringify({name:this.name, image:this.imageOfList, id:this.id}))
             },
             editAccount() {
                 this.showForm = true
