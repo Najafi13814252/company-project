@@ -59,7 +59,7 @@
             return {
                 showForm: false,
                 filter: false,
-                showEmptyForm: true,
+                showEmptyForm: false,
                 name: "",
                 imageOfList: "",
                 id: 0,
@@ -69,6 +69,9 @@
         },
         created() {
             this.todos = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]')
+            if (this.todos == "") {
+                this.showEmptyForm = true
+            }
         },
         methods: {
             openForm() {
@@ -91,10 +94,7 @@
                 if (this.name !== "") {
                     this.todos.push({name:this.name, image:this.imageOfList, id:this.id})
                 }
-                localStorage.setItem(STORAGE_KEY, JSON.stringify({name:this.name, image:this.imageOfList, id:this.id}))
-
-                this.showFullForm = true
-
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(this.todos))
             },
             editAccount() {
                 this.showForm = true
