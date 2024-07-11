@@ -7,6 +7,7 @@ import router from './router'
 import Sidebar from './components/Sidebar.vue'
 import Cards from './components/Cards.vue'
 import Account from './components/Account.vue'
+import Delete from './components/Delete.vue'
 
 import './assets/index.css'
 import 'animate.css';
@@ -16,6 +17,7 @@ const app = createApp(App)
 app.component('sidebar', Sidebar)
 app.component('cards', Cards)
 app.component('account', Account)
+app.component('delete', Delete)
 
 app.use(router)
 
