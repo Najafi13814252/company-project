@@ -24,7 +24,7 @@
                             <div class="border-2 absolute left-0 top-0 border-dashed border-white rounded-full w-full h-full animate-spin-very-slow rotate-180"></div>
                             <img class="w-16 p-2" src="./../../public/images/children.png" alt="children">
                         </div>
-                        <button class="font-bold text-white">Children Account (<span>0</span>)</button>
+                        <button class="font-bold text-white">Children Account (<span>{{ localLength }}</span>)</button>
                     </div>
                 </router-link>
                 <div class="flex flex-wrap items-center gap-2 cursor-pointer"> 
@@ -51,13 +51,16 @@
 
 <script>
 
+    const LOCAL_LENGTH = localStorage.getItem('key')
+
     export default {
         data() {
             return {
                 profile: [
                     {title: 'Profile', label1: 'Name', label2: 'Email', textBtn: 'Save', typeLabel1: 'text', typeLabel2: 'email', id: 1},
                     {title: 'Password', label1: 'Current Password', label2: 'New Password', textBtn: 'Change', typeLabel1: 'password', typeLabel2: 'password', id: 2}  
-                ]
+                ],
+                localLength: LOCAL_LENGTH
             }
         }
     }

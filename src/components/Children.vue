@@ -72,6 +72,7 @@
         },
         created() {
             this.todos = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]')
+            localStorage.key = this.todos.length
             if (this.todos == "") {
                 this.showEmptyForm = true
             }
