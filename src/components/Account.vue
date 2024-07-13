@@ -4,7 +4,7 @@
             <div class="flex flex-col gap-3 p-4">
                 <div class="flex flex-col">
                     <label class="font-black text-lg text-gray-500 mb-1">Name</label>
-                    <input class="w-full py-3 px-5 rounded-3xl border border-pink-300" type="text" v-model.lazy="inpName">
+                    <input class="w-full py-3 px-5 rounded-3xl border border-pink-300" type="text" v-model="inpName">
                     <!-- <span class="ml-5 mt-2 font-medium text-red-500">This field cannot be empty!</span> -->
                 </div>
                 <div class="flex flex-col">
@@ -57,7 +57,7 @@
                 this.$emit('add', {
                     name:this.inpName,
                     image: this.images[this.borderAct - 1],
-                    id: this.id
+                    id:this.id
                 })
                 this.inpName = ""
                 this.borderAct = 1

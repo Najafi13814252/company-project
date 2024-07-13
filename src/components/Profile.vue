@@ -24,7 +24,7 @@
                             <div class="border-2 absolute left-0 top-0 border-dashed border-white rounded-full w-full h-full animate-spin-very-slow rotate-180"></div>
                             <img class="w-16 p-2" src="./../../public/images/children.png" alt="children">
                         </div>
-                        <button class="font-bold text-white">Children Account (0)</button>
+                        <button class="font-bold text-white">Children Account (<span>0</span>)</button>
                     </div>
                 </router-link>
                 <div class="flex flex-wrap items-center gap-2 cursor-pointer"> 
@@ -50,6 +50,7 @@
 </template>
 
 <script>
+
     export default {
         data() {
             return {

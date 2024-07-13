@@ -35,7 +35,7 @@
                             <span class="font-black text-lg text-gray-700">{{ todo.name }}</span>
                         </div>
                         <div class="flex items-center gap-x-2 cursor-pointer">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 p-1 text-white bg-gray-400 rounded-lg hover:scale-110 hover:bg-gray-500 duration-200" @click="editAccount">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 p-1 text-white bg-gray-400 rounded-lg hover:scale-110 hover:bg-gray-500 duration-200" @click.prevent="editAccount">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"></path></svg>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 p-1 text-white bg-orange-400 rounded-lg hover:scale-110 hover:bg-orange-500 duration-200" @click="deleteAccount">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path></svg>
@@ -46,7 +46,7 @@
         </div>
     </div>
 
-    <account class="absolute md:left-1/3 top-28" v-show="showForm" @close-form="closeForm" @add="addAccount" :edit="edit"/>
+    <account class="absolute md:left-1/3 top-28" v-show="showForm" @close-form="closeForm" @add="addAccount" :edit="edit" @edit="editAcc"/>
 
     <delete class="absolute md:left-[37%] top-48" v-show="showDelete" @cancel="cancel" @remove-todo="removeTodo"/>
 
@@ -93,9 +93,12 @@
                 this.showForm = false
                 this.filter = false
                 this.showEmptyForm = false
-
-                if (this.name !== "") {
+                if (this.name !== "" && this.edit == 'Add') {
                     this.todos.push({name:this.name, image:this.imageOfList, id:this.id})
+                }
+                if (this.edit == 'Edit') {
+                    this.todos[this.id - 1].name = this.name
+                    this.todos[this.id - 1].image = this.imageOfList
                 }
                 localStorage.setItem(STORAGE_KEY, JSON.stringify(this.todos))
             },
@@ -110,6 +113,7 @@
             },
             cancel() {
                 this.showDelete = false
+                this.filter = false
             },
             removeTodo(idAccount) {
                 this.todos.forEach((item, indexItem) => {
