@@ -3,7 +3,7 @@
     <user v-show="showUserIcon"/>
 
     <div class="md:overflow-hidden md:max-w-none font-[Mulish]">
-        <div class="flex flex-col justify-center items-center" v-show="showProfile">
+        <div class="flex flex-col justify-center items-center overflow-hidden" v-show="showProfile">
             <!-- header -->
             <div class="md:mt-10 mt-2 md:ml-48 w-[60rem] md:w-full">
                 <img class="h-80" src="./../../public/images/page_title_bg.png" alt="headerProfile">
@@ -67,7 +67,7 @@
         </div>
     </div>
 
-    <role class="absolute md:top-1/3 md:left-1/4 top-0 left-0 pt-10 md:pt-0" v-show="showRole" @backProfile="backtoProfile"/>
+    <role class="mx-auto h-screen w-full absolute top-0 pt-10 md:pt-0" v-show="showRole" @backProfile="backtoProfile"/>
 
 </template>
 
