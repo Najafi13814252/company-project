@@ -1,4 +1,7 @@
 <template>
+
+    <user />
+
     <div class="md:flex md:flex-row flex flex-col text-center justify-center items-center md:mt-8 mt-20 mb-20 md:mb-0 gap-x-8  md:gap-y-0 gap-y-20 md:ml-72 font-[Mulish]">
         <div class="w-72 bg-gray-100 rounded-2xl shadow-md" v-for="card in credits" :key="card.id">
             <div class="flex flex-col p-8 rounded-t-xl" :style="{backgroundColor: card.color}">

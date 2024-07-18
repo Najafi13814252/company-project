@@ -1,17 +1,10 @@
 <template>
-
-    <!-- user -->
-    <div class="absolute top-5 md:right-5 right-0 md:relative flex justify-end items-center mr-5 cursor-pointer">
-        <span class="pr-5 text-gray-500 text-sm font-bold">User</span>
-        <div class="fa fa-user-o text-2xl text-white bg-pink-300 p-1 text-center md:w-11 md:h-11 w-10 h-10 rounded-full"></div>
-    <div class="absolute md:-mr-[.47rem] -mr-[.33rem]  border-2 border-dashed border-pink-300 md:p-7 p-6 rounded-full hover:animate-spin-slow hover:rotate-180"></div>
-    </div>
-
+    
     <!-- button responsive -->
     <div class="relative m-5 md:hidden" v-show="showBtnTune" @click="showSidebar">
         <span class="material-symbols-outlined text-pink-300 p-2 border-2 border-dashed border-pink-300 rounded-xl cursor-pointer hover:border-solid hover:border-pink-300 hover:bg-pink-100 hover:shadow-lg hover:scale-105 duration-200">tune</span>
     </div>
-    
+
     <div class="absolute top-0 left-0 hidden md:block z-40 bg-white md:fixed font-[Nunito] md:w-72 w-3/4 h-[100rem] border-r-2 border-dashed border-pink-200" v-show="openSidebar" :style="{display: displaySidebar, animationDuration: '0.2s'}" :class="{animate__fadeInLeftBig: anima}">
         <!-- title & image & close rseponsive -->
         <div class="md:pt-5 pt-1 flex flex-col gap-2 items-center">

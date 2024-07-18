@@ -1,5 +1,7 @@
 <template>
 
+    <user />
+
     <div class="overflow-hidden md:max-w-none flex flex-col justify-center items-center font-[Mulish]" :class="{bgFilter: filter}">
         <!-- header -->
         <div class="md:mt-10 mt-2 md:ml-48 w-[80rem] md:w-full">

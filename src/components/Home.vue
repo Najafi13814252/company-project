@@ -1,5 +1,7 @@
 <template>
 
+    <user />
+
     <cards />
 
 </template>
