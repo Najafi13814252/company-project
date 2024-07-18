@@ -42,7 +42,6 @@
                 showBtnTune: true,
                 displaySidebar: 'none',
                 anima: false,
-                filter: false
             }
         },
         methods: {
@@ -55,7 +54,7 @@
                 this.displaySidebar = 'block'
                 this.anima = true
             },
-            sidebarOptions(optionId) {
+            sidebarOptions(optionId) { 
                 if (optionId == 1) {
                     this.$router.push({ name: 'home', params: { id: optionId } })
                 } 
@@ -64,9 +63,6 @@
                 } else if (optionId == 3) {
                     this.$router.push({ name: 'profile', params: { id: optionId } })
                 }
-            },
-            bgFilterSlider() {
-                this.filter = true
             }
         }
     }
