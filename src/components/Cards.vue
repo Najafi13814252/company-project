@@ -32,14 +32,14 @@
         data() {
             return {
                 cards: [
-                    {url: './../../public/images/ger_01.jpg', title: 'Die Bremer Stadtmusikanten', price: 'free', id: 1},
-                    {url: './../../public/images/Sophies_Shell_[0].jpg', title: 'Sophies Shell', price: 'free', id: 2},
-                    {url: './../../public/images/Pooka_&_Bunni_[0].jpg', title: 'Pooka & Bunni', price: 'free', id: 3},
-                    {url: './../../public/images/How_Can_I_Wait_[0].jpg', title: 'How Can I Wait', price: 'free', id: 4},
-                    {url: './../../public/images/Giraffe_Asks_For_Help_[0].jpg', title: 'Giraffe Asks For Help', price: 'free', id: 5},
-                    {url: './../../public/images/fantas....jpg', title: 'Fantastic You', price: 'free', id: 6},
-                    {url: './../../public/images/A_Terrible_Thing_Happened_[0].jpg', title: 'A Terrible Thing Happened', price: 'free', id: 7},
-                    {url: './../../public/images/A_Box_of_Butterfiles_[1].jpg', title: 'A Box of Butterfiles', price: 'free', id: 8},
+                    {url: './../../public/images/ger_01.jpg', title: 'Die Bremer Stadtmusikanten', price: '$5', id: 1},
+                    {url: './../../public/images/Sophies_Shell_[0].jpg', title: 'Sophies Shell', price: '$5', id: 2},
+                    {url: './../../public/images/Pooka_&_Bunni_[0].jpg', title: 'Pooka & Bunni', price: '$5', id: 3},
+                    {url: './../../public/images/How_Can_I_Wait_[0].jpg', title: 'How Can I Wait', price: '$5', id: 4},
+                    {url: './../../public/images/Giraffe_Asks_For_Help_[0].jpg', title: 'Giraffe Asks For Help', price: '$5', id: 5},
+                    {url: './../../public/images/fantas....jpg', title: 'Fantastic You', price: '$5', id: 6},
+                    {url: './../../public/images/A_Terrible_Thing_Happened_[0].jpg', title: 'A Terrible Thing Happened', price: '$5', id: 7},
+                    {url: './../../public/images/A_Box_of_Butterfiles_[1].jpg', title: 'A Box of Butterfiles', price: '$5', id: 8},
                     {url: './../../public/images/A_Box_of_Butterfiles_[1].jpg', title: 'A Box of Butterfiles', price: 'free', id: 9},
                     {url: './../../public/images/A_Box_of_Butterfiles_[1].jpg', title: 'A Box of Butterfiles', price: 'free', id: 10},
                     {url: './../../public/images/A_Box_of_Butterfiles_[1].jpg', title: 'A Box of Butterfiles', price: 'free', id: 11},

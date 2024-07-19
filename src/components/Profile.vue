@@ -74,6 +74,7 @@
 <script>
 
     const LOCAL_LENGTH = localStorage.getItem('key')
+    console.log(LOCAL_LENGTH);
 
     export default {
         data() {

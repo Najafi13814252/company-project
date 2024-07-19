@@ -50,7 +50,7 @@
 
     <account class="absolute md:left-1/3 top-28" v-show="showForm" @close-form="closeForm" @add="addAccount" :edit="edit" @edit="editAcc"/>
 
-    <delete class="absolute md:left-[37%] top-48" v-show="showDelete" @cancel="cancel" @remove-todo="removeTodo"/>
+    <delete class="fixed  md:left-[37%] top-48" v-show="showDelete" @cancel="cancel" @remove-todo="removeTodo"/>
 
 </template>
 
@@ -74,7 +74,6 @@
         },
         created() {
             this.todos = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]')
-            localStorage.key = this.todos.length
             if (this.todos == "") {
                 this.showEmptyForm = true
             }
@@ -104,6 +103,7 @@
                     this.todos[this.id - 1].image = this.imageOfList
                 }
                 localStorage.setItem(STORAGE_KEY, JSON.stringify(this.todos))
+                localStorage.key = this.todos.length
             },
             editAccount() {
                 this.showForm = true
@@ -120,11 +120,12 @@
             },
             removeTodo(idAccount) {
                 this.todos.forEach((item, indexItem) => {
-                    if (idAccount === indexItem) {
-                        this.todos.splice(idAccount, 1)         
+                    if (idAccount == indexItem) {
+                        this.todos.splice(idAccount, 1)
                     }
                 })
                 localStorage.setItem(STORAGE_KEY, JSON.stringify(this.todos))
+                localStorage.key = this.todos.length
                 this.showDelete = false
                 this.filter = false
             }

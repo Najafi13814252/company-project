@@ -55,6 +55,9 @@
                 this.anima = true
             },
             sidebarOptions(optionId) { 
+                if (window.innerWidth <= 640) {
+                    this.openSidebar = false
+                }
                 if (optionId == 1) {
                     this.$router.push({ name: 'home', params: { id: optionId } })
                 } 

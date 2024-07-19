@@ -59,8 +59,6 @@
                     image: this.images[this.borderAct - 1],
                     id:this.id
                 })
-                this.inpName = ""
-                this.borderAct = 1
             }
         }
     }
