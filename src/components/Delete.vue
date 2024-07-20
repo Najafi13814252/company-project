@@ -17,9 +17,10 @@
 
 <script>
     export default {
+        props: ['indexofTodo'],
         data() {
             return {
-                id: 0
+                // index: 0
             }
         },
         methods: {
@@ -27,8 +28,8 @@
                 this.$emit('cancel')
             },
             removeTodo() {
-                this.id += 1
-                this.$emit('remove-todo', this.id - 1)
+                // this.index += 1
+                this.$emit('remove-todo', this.indexofTodo)
             }
         }
     }
