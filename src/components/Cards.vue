@@ -1,6 +1,6 @@
 <template>
 
-    <div class="md:ml-80 overflow-hidden font-[Nunito] selection:bg-[#df7a97] selection:text-white">
+    <div class="fadeIn md:ml-80 overflow-hidden font-[Nunito] selection:bg-[#df7a97] selection:text-white">
         <!-- cards & searchBox -->
         <main class="mx-auto max-w-5xl py-5">
             <!-- searchBox -->

@@ -12,7 +12,7 @@ import User from './components/User.vue'
 import Role from './components/Role.vue'
 
 import './assets/index.css'
-import 'animate.css';
+import './assets/animate.css'
 
 const app = createApp(App)
 

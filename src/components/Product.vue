@@ -1,6 +1,6 @@
 <template>
     
-    <div class="flex justify-center items-center selection:bg-[#df7a97] selection:text-white">
+    <div class="fadeIn flex justify-center items-center selection:bg-[#df7a97] selection:text-white">
         <!-- Introduction -->
         <div class="flex flex-col justify-center items-center mt-10 " v-for="d in details" :key="d.id" v-show="id == d.id">
             <div class="md:flex md:flex-row flex flex-col gap-x-4 md:ml-72">

@@ -1,12 +1,12 @@
 <template>
 
-    <user />
+    <user/>
 
-    <div class="overflow-hidden md:max-w-none flex flex-col justify-center items-center font-[Mulish]" :class="{bgFilter: filter}">
+    <div class="fadeIn overflow-hidden md:max-w-none flex flex-col justify-center items-center font-[Mulish]" :class="{bgFilter: filter}">
         <!-- header -->
-        <div class="md:mt-10 mt-2 md:ml-48 w-[80rem] md:w-full">
+        <div class="md:mt-10 mt-2 md:ml-48 w-[80rem] md:w-full md:pl-48">
             <img class="h-80" src="./../../public/images/page_title_bg.png" alt="headerProfile">
-            <div class="relative md:bottom-52 bottom-64 flex flex-col justify-center items-center">
+            <div class="relative md:right-24 md:bottom-52 bottom-64 flex flex-col justify-center items-center">
                 <h1 class="text-5xl max-w-72 md:max-w-none text-center font-black text-[#12265a] font-[Nunito]">Children accounts</h1>
                 <ul class="flex items-center mt-2 gap-x-2">
                     <i class="fa fa-circle text-[6px] mt-1 text-cyan-500"></i>
@@ -48,9 +48,9 @@
         </div>
     </div>
 
-    <account class="absolute md:left-1/3 top-28" v-show="showForm" @close-form="closeForm" @add="addAccount" :edit="edit" @edit="editAcc"/>
+    <account class="fadeIn absolute z-40 md:left-1/3 top-28" v-show="showForm" @close-form="closeForm" @add="addAccount" :edit="edit" @edit="editAcc"/>
 
-    <delete class="fixed  md:left-[37%] top-48" v-show="showDelete" @cancel="cancel" @remove-todo="removeTodo" :indexof-todo="index"/>
+    <delete class="fixed z-50 md:left-[37%] top-48" v-show="showDelete" @cancel="cancel" @remove-todo="removeTodo" :indexof-todo="index"/>
 
 </template>
 
@@ -115,7 +115,6 @@
                 this.showDelete = true
                 this.filter = true
                 this.index = index
-                // console.log(this.index);
             },
             cancel() {
                 this.showDelete = false
@@ -127,6 +126,9 @@
                         this.todos.splice(idAccount, 1)
                     }
                 })
+                if (this.todos == "") {
+                    this.showEmptyForm = true
+                }
                 localStorage.setItem(STORAGE_KEY, JSON.stringify(this.todos))
                 localStorage.key = this.todos.length
                 this.showDelete = false
@@ -138,6 +140,13 @@
 
 <style>
     .bgFilter {
-        filter: blur(4px);
+        background-color: rgba(255, 255, 255, 0.1);
+        position: absolute;
+        z-index: 40;
+        top: 0%;
+        height: 100vh;
+        backdrop-filter: blur(2px);
+        -webkit-backdrop-filter: blur(2px);
+        filter: blur(2px);
     }
 </style>
